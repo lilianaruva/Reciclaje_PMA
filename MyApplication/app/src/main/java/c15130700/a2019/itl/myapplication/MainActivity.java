@@ -15,10 +15,11 @@ public class MainActivity extends AppCompatActivity {
     ImageButton bV,bAz,bAm,bN;
     ImageButton bo1,bo2,bo3,bo4;
     ImageButton bp1,bp2,bp3,bp4;
+    ImageButton br1,br2,br3,br4;
+    ImageButton bnr1,bnr2,bnr3,bnr4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -38,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         bp2=(ImageButton)findViewById(R.id.p2);
         bp3=(ImageButton)findViewById(R.id.p3);
         bp4=(ImageButton)findViewById(R.id.p4);
+        //basura reciclable
+        br1=(ImageButton)findViewById(R.id.r1);
+        br2=(ImageButton)findViewById(R.id.r2);
+        br3=(ImageButton)findViewById(R.id.r3);
+        br4=(ImageButton)findViewById(R.id.r4);
+        //basura no reciclable
+        bnr1=(ImageButton)findViewById(R.id.nr1);
+        bnr2=(ImageButton)findViewById(R.id.nr2);
+        bnr3=(ImageButton)findViewById(R.id.nr3);
+        bnr4=(ImageButton)findViewById(R.id.nr4);
 
         //eventos dragListener (los que vamos a recibir)
         bV.setOnDragListener(dragListener);
@@ -55,6 +66,16 @@ public class MainActivity extends AppCompatActivity {
         bp2.setOnLongClickListener(longClickListener);
         bp3.setOnLongClickListener(longClickListener);
         bp4.setOnLongClickListener(longClickListener);
+        //basura reciclable
+        br1.setOnLongClickListener(longClickListener);
+        br2.setOnLongClickListener(longClickListener);
+        br3.setOnLongClickListener(longClickListener);
+        br4.setOnLongClickListener(longClickListener);
+        //basura no reciclable
+        bnr1.setOnLongClickListener(longClickListener);
+        bnr2.setOnLongClickListener(longClickListener);
+        bnr3.setOnLongClickListener(longClickListener);
+        bnr4.setOnLongClickListener(longClickListener);
 
     }
 
@@ -99,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
                         MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
                         media.start();
                     }
-
                     if(view.getId()==R.id.o4&&v.getId()==R.id.boteVerde){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
@@ -123,8 +143,6 @@ public class MainActivity extends AppCompatActivity {
                         MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
                         mediaf.start();
                     }
-
-
                     //PLASTICOS
                     if(view.getId()==R.id.p1&&v.getId()==R.id.boteAzul){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
@@ -165,6 +183,92 @@ public class MainActivity extends AppCompatActivity {
                         mediaf.start();
                     }
                     if(view.getId()==R.id.p4&&v.getId()!=R.id.boteAzul) {
+                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
+                        mediaf.start();
+                    }
+                    //Reciclable
+                    if(view.getId()==R.id.r1&&v.getId()==R.id.boteAmarillo){
+                        LinearLayout oldParent = (LinearLayout)view.getParent();
+                        oldParent.removeView(view);
+                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
+                        media.start();
+                    }
+                    if(view.getId()==R.id.r2&&v.getId()==R.id.boteAmarillo){
+                        LinearLayout oldParent = (LinearLayout)view.getParent();
+                        oldParent.removeView(view);
+                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
+                        media.start();
+                    }
+                    if(view.getId()==R.id.r3&&v.getId()==R.id.boteAmarillo){
+                        LinearLayout oldParent = (LinearLayout)view.getParent();
+                        oldParent.removeView(view);
+                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
+                        media.start();
+                    }
+
+                    if(view.getId()==R.id.r4&&v.getId()==R.id.boteAmarillo){
+                        LinearLayout oldParent = (LinearLayout)view.getParent();
+                        oldParent.removeView(view);
+                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
+                        media.start();
+                    }
+                    //fails
+                    if(view.getId()==R.id.r1&&v.getId()!=R.id.boteAmarillo) {
+                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
+                        mediaf.start();
+                    }
+                    if(view.getId()==R.id.r2&&v.getId()!=R.id.boteAmarillo) {
+                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
+                        mediaf.start();
+                    }
+                    if(view.getId()==R.id.r3&&v.getId()!=R.id.boteAmarillo) {
+                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
+                        mediaf.start();
+                    }
+                    if(view.getId()==R.id.r4&&v.getId()!=R.id.boteAmarillo) {
+                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
+                        mediaf.start();
+                    }
+                    //No Reciclable
+                    if(view.getId()==R.id.nr1&&v.getId()==R.id.boteNegro){
+                        LinearLayout oldParent = (LinearLayout)view.getParent();
+                        oldParent.removeView(view);
+                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
+                        media.start();
+                    }
+                    if(view.getId()==R.id.nr2&&v.getId()==R.id.boteNegro){
+                        LinearLayout oldParent = (LinearLayout)view.getParent();
+                        oldParent.removeView(view);
+                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
+                        media.start();
+                    }
+                    if(view.getId()==R.id.nr3&&v.getId()==R.id.boteNegro){
+                        LinearLayout oldParent = (LinearLayout)view.getParent();
+                        oldParent.removeView(view);
+                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
+                        media.start();
+                    }
+
+                    if(view.getId()==R.id.nr4&&v.getId()==R.id.boteNegro){
+                        LinearLayout oldParent = (LinearLayout)view.getParent();
+                        oldParent.removeView(view);
+                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
+                        media.start();
+                    }
+                    //fails
+                    if(view.getId()==R.id.nr1&&v.getId()!=R.id.boteNegro) {
+                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
+                        mediaf.start();
+                    }
+                    if(view.getId()==R.id.nr2&&v.getId()!=R.id.boteNegro) {
+                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
+                        mediaf.start();
+                    }
+                    if(view.getId()==R.id.nr3&&v.getId()!=R.id.boteNegro) {
+                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
+                        mediaf.start();
+                    }
+                    if(view.getId()==R.id.nr4&&v.getId()!=R.id.boteNegro) {
                         MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
                         mediaf.start();
                     }
