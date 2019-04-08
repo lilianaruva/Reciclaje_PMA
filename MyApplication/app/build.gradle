@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "c15130700.a2019.itl.myapplication"
-        minSdkVersion 27
+        minSdkVersion 20
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
