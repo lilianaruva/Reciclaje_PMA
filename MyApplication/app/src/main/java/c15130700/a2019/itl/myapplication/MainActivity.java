@@ -1,7 +1,10 @@
 package c15130700.a2019.itl.myapplication;
 
 import android.content.ClipData;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.DragEvent;
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton bp1,bp2,bp3,bp4;
     ImageButton br1,br2,br3,br4;
     ImageButton bnr1,bnr2,bnr3,bnr4;
+    int lives = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +93,28 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private void showToast() {
+        Toast.makeText(this, "Total de vidas restantes: " + lives, Toast.LENGTH_LONG).show();
+    }
+
+    private void ActionFail()
+    {
+        if(lives == 0){
+            GameOver();
+        }
+        else {
+            lives--;
+            MediaPlayer mediaf = MediaPlayer.create(MainActivity.this, R.raw.fail);
+            mediaf.start();
+            showToast();
+        }
+
+    }
+
+    private void GameOver(){
+        finish();
+    }
+
     View.OnDragListener dragListener = new View.OnDragListener() {
         @Override
         public boolean onDrag(View v, DragEvent event) {
@@ -108,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                         MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
                         media.start();
                     }
-                        if(view.getId()==R.id.o2&&v.getId()==R.id.boteVerde){
+                    if(view.getId()==R.id.o2&&v.getId()==R.id.boteVerde){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
                         MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
@@ -128,20 +154,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                     //fails
                     if(view.getId()==R.id.o1&&v.getId()!=R.id.boteVerde) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.o2&&v.getId()!=R.id.boteVerde) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.o3&&v.getId()!=R.id.boteVerde) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.o4&&v.getId()!=R.id.boteVerde) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     //PLASTICOS
                     if(view.getId()==R.id.p1&&v.getId()==R.id.boteAzul){
@@ -171,20 +193,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                     //fails
                     if(view.getId()==R.id.p1&&v.getId()!=R.id.boteAzul) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.p2&&v.getId()!=R.id.boteAzul) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.p3&&v.getId()!=R.id.boteAzul) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.p4&&v.getId()!=R.id.boteAzul) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     //Reciclable
                     if(view.getId()==R.id.r1&&v.getId()==R.id.boteAmarillo){
@@ -214,20 +232,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                     //fails
                     if(view.getId()==R.id.r1&&v.getId()!=R.id.boteAmarillo) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.r2&&v.getId()!=R.id.boteAmarillo) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.r3&&v.getId()!=R.id.boteAmarillo) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.r4&&v.getId()!=R.id.boteAmarillo) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     //No Reciclable
                     if(view.getId()==R.id.nr1&&v.getId()==R.id.boteNegro){
@@ -257,20 +271,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                     //fails
                     if(view.getId()==R.id.nr1&&v.getId()!=R.id.boteNegro) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.nr2&&v.getId()!=R.id.boteNegro) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.nr3&&v.getId()!=R.id.boteNegro) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
                     if(view.getId()==R.id.nr4&&v.getId()!=R.id.boteNegro) {
-                        MediaPlayer mediaf = MediaPlayer.create(MainActivity.this,R.raw.fail);
-                        mediaf.start();
+                        ActionFail();
                     }
 
                     break;
