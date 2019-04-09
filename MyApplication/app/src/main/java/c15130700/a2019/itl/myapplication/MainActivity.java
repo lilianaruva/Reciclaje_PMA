@@ -1,5 +1,6 @@
 package c15130700.a2019.itl.myapplication;
 
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //referenciamos imagenbuttons con las variables
         //botes
         bV= (ImageButton)findViewById(R.id.boteVerde);
@@ -80,6 +80,17 @@ public class MainActivity extends AppCompatActivity {
         bnr2.setOnLongClickListener(longClickListener);
         bnr3.setOnLongClickListener(longClickListener);
         bnr4.setOnLongClickListener(longClickListener);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if(Singleton.getInstance().getResponse()) {
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
+        }
+        else { finish(); }
 
     }
 
@@ -94,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void showToast() {
-        Toast.makeText(this, "Total de vidas restantes: " + lives, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Vidas restantes: " + lives, Toast.LENGTH_LONG).show();
     }
 
     private void ActionFail()
@@ -112,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void GameOver(){
-        finish();
+        Intent intent = new Intent(this, GameOverActivity.class);
+        startActivity(intent);
     }
 
     View.OnDragListener dragListener = new View.OnDragListener() {
