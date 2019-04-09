@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton br1,br2,br3,br4;
     ImageButton bnr1,bnr2,bnr3,bnr4;
     int lives = 5;
+    int target = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
     private void ActionFail()
     {
         if(lives == 0){
-            GameOver();
+            Intent intent = new Intent(this, GameOverActivity.class);
+            startActivity(intent);
         }
         else {
             lives--;
@@ -119,13 +121,18 @@ public class MainActivity extends AppCompatActivity {
             mediaf.start();
             showToast();
         }
-
     }
 
-    private void GameOver(){
-        Intent intent = new Intent(this, GameOverActivity.class);
-        startActivity(intent);
+    private void ActionSuccess(){
+        target++;
+        MediaPlayer media = MediaPlayer.create(MainActivity.this, R.raw.trash);
+        media.start();
+        if(target == 16) {
+            Intent intent = new Intent(this, WinnerActivity.class);
+            startActivity(intent);
+            }
     }
+
 
     View.OnDragListener dragListener = new View.OnDragListener() {
         @Override
@@ -143,26 +150,22 @@ public class MainActivity extends AppCompatActivity {
                     if(view.getId()==R.id.o1&&v.getId()==R.id.boteVerde){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     if(view.getId()==R.id.o2&&v.getId()==R.id.boteVerde){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     if(view.getId()==R.id.o3&&v.getId()==R.id.boteVerde){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     if(view.getId()==R.id.o4&&v.getId()==R.id.boteVerde){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     //fails
                     if(view.getId()==R.id.o1&&v.getId()!=R.id.boteVerde) {
@@ -181,27 +184,23 @@ public class MainActivity extends AppCompatActivity {
                     if(view.getId()==R.id.p1&&v.getId()==R.id.boteAzul){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     if(view.getId()==R.id.p2&&v.getId()==R.id.boteAzul){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     if(view.getId()==R.id.p3&&v.getId()==R.id.boteAzul){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
 
                     if(view.getId()==R.id.p4&&v.getId()==R.id.boteAzul){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     //fails
                     if(view.getId()==R.id.p1&&v.getId()!=R.id.boteAzul) {
@@ -220,27 +219,23 @@ public class MainActivity extends AppCompatActivity {
                     if(view.getId()==R.id.r1&&v.getId()==R.id.boteAmarillo){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     if(view.getId()==R.id.r2&&v.getId()==R.id.boteAmarillo){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     if(view.getId()==R.id.r3&&v.getId()==R.id.boteAmarillo){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
 
                     if(view.getId()==R.id.r4&&v.getId()==R.id.boteAmarillo){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     //fails
                     if(view.getId()==R.id.r1&&v.getId()!=R.id.boteAmarillo) {
@@ -259,27 +254,23 @@ public class MainActivity extends AppCompatActivity {
                     if(view.getId()==R.id.nr1&&v.getId()==R.id.boteNegro){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     if(view.getId()==R.id.nr2&&v.getId()==R.id.boteNegro){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     if(view.getId()==R.id.nr3&&v.getId()==R.id.boteNegro){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
 
                     if(view.getId()==R.id.nr4&&v.getId()==R.id.boteNegro){
                         LinearLayout oldParent = (LinearLayout)view.getParent();
                         oldParent.removeView(view);
-                        MediaPlayer media = MediaPlayer.create(MainActivity.this,R.raw.trash);
-                        media.start();
+                        ActionSuccess();
                     }
                     //fails
                     if(view.getId()==R.id.nr1&&v.getId()!=R.id.boteNegro) {
