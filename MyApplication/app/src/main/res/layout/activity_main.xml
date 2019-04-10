@@ -11,16 +11,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fondoT"
+        android:background="@drawable/fondot"
         android:orientation="horizontal">
-        <!-- INSERTAR AQUI IMAGEN DE LAS VIDAS-->
-        <ImageView
-            android:id="@+id/imageView4"
+
+        <TextView
+            android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ma" />
-        <!-- AYUDA-->
+            android:layout_weight=".1"
+            android:text="Vidas:"
+            android:textSize="35sp"/>
+
+        <ImageView
+            android:id="@+id/imageViewLives"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight=".1"
+            app:srcCompat="@drawable/lives3" />
+
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
@@ -28,7 +36,7 @@
             android:layout_gravity="right"
             android:layout_weight="1"
             android:background="@null"
-
+            android:onClick="onClickHelp"
             app:srcCompat="@drawable/ma" />
     </LinearLayout>
 

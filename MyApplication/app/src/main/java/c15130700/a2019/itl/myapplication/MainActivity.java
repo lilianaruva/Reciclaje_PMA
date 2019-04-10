@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -21,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     ImageButton bp1,bp2,bp3,bp4;
     ImageButton br1,br2,br3,br4;
     ImageButton bnr1,bnr2,bnr3,bnr4;
-    int lives = 5;
+    ImageView imaLives;
+    int lives = 3;
     int target = 0;
 
     @Override
@@ -95,6 +97,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    View help_layout;
+
+    public void onClickHelp(View v) {
+        help_layout = this.getLayoutInflater().inflate(R.layout.help_layout, null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Guia")
+                .setView(help_layout)
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create()
+                .show();
+    }
+
     View.OnLongClickListener longClickListener= new View.OnLongClickListener() {
         @Override
         public boolean onLongClick(View v) {
@@ -105,21 +124,20 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private void showToast() {
-        Toast.makeText(this, "Vidas restantes: " + lives, Toast.LENGTH_LONG).show();
-    }
-
     private void ActionFail()
     {
+        imaLives = findViewById(R.id.imageViewLives);
         if(lives == 0){
             Intent intent = new Intent(this, GameOverActivity.class);
             startActivity(intent);
         }
         else {
             lives--;
+            if(lives == 2) { imaLives.setImageResource(R.drawable.lives2); }
+            if(lives == 1) { imaLives.setImageResource(R.drawable.lives1); }
+            if(lives == 0) { imaLives.setImageResource(R.drawable.lives0); }
             MediaPlayer mediaf = MediaPlayer.create(MainActivity.this, R.raw.fail);
             mediaf.start();
-            showToast();
         }
     }
 

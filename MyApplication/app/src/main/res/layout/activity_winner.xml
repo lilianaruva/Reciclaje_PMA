@@ -34,7 +34,7 @@
         android:layout_height="343dp"
         app:srcCompat="@drawable/winner1" />
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -42,17 +42,17 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="onClickFinish"
+            android:layout_weight="1"
+            android:text="Acerca de"
+            android:onClick="OnClickAbout"/>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Salir"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.091" />
-    </android.support.constraint.ConstraintLayout>
+            android:onClick="onClickFinish"/>
+    </LinearLayout>
 
 </LinearLayout>
